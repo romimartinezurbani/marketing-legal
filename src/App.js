@@ -39,21 +39,29 @@ export default function App() {
       </main>
 
       <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
-            <img src={logo} alt="logo" className="logo" />
-          </div>
-          <div>
-            <p>Hipólito Irigoyen 470 - Río Cuarto, Cba</p>
-            <p>Llámanos al (0358) 156001318</p>
-            <p>marketinglegal.ok@gmail.com</p>
-          </div>
-        </div>
+          <div className="container footer-grid">
+            
+            {/* LOGO FORMATEADO */}
+            <div className="footer-logo-wrapper">
+              <div className="footer-logo-circle">
+                <img src={logo} alt="logo" className="footer-logo" />
+              </div>
+            </div>
 
-        <div className="copyright">
-          © {new Date().getFullYear()} Marketing Legal
-        </div>
-      </footer>
+            {/* DATOS DEL ESTUDIO */}
+            <div className="footer-info">
+              <p><span className="footer-icon">📍</span> Hipólito Irigoyen 470 - Río Cuarto, Cba</p>
+              <p><span className="footer-icon">📞</span> (0358) 156001318</p>
+              <p><span className="footer-icon">✉️</span> marketinglegal.ok@gmail.com</p>
+            </div>
+
+          </div>
+
+          <div className="copyright">
+            © {new Date().getFullYear()} Marketing Legal. Todos los derechos reservados.
+          </div>
+        </footer>
+
 
       <ContactButton />
     </>

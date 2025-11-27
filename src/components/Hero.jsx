@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="hero-card">
           <div className="card-inner">
 
-            {/* ⭐ Nuevo estilo del logo del Hero */}
+            
             <div className="hero-logo-wrapper">
               <img src={logo} alt="Marketing Legal" className="hero-logo" />
             </div>

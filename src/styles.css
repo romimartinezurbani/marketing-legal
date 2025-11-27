@@ -129,7 +129,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background: rgba(255,255,255,0.95);
+  background: #1F2839;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(0,0,0,0.07);
   z-index: 100;
@@ -142,8 +142,26 @@ body {
   padding: .6rem 0;   /* MÁS FINITO */
 }
 
+/* Logo dentro de un círculo */
+.logo-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;  /* espacio interno elegante */
+}
+
 .logo {
-  height: 40px;       /* MÁS PRO PORPORCIONADO */
+  height: 30px;      /* más chico para que no toque el borde */
+  width: auto;
+}
+
+.brand-text .brand-title,
+.brand-text .brand-sub {
+  color: var(--white) !important;
 }
 
 .nav-links {
@@ -152,18 +170,19 @@ body {
 }
 
 .nav-links a {
-  color: var(--dark);
+  color: var(--white);
   text-decoration: none;
   padding: .45rem .8rem;
   border-radius: 6px;
 }
 
 .nav-links a:hover {
-  background: rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.08);
 }
 
+
 .btn-outline {
-  border: 1px solid var(--dark);
+  border: 1px solid var(--accent);
 }
 
 /* ============================= */
@@ -215,8 +234,9 @@ body {
 /* ============================= */
 
 .reunion-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1100px;      /* Igual que .container */
+  width: 100%;            /* Ocupa el ancho completo */
+  margin: 0 auto;         /* Centrado como todas las secciones */
 }
 
 .reunion-wrapper h3 {
@@ -245,6 +265,8 @@ body {
   left: 0;
   top: 7px;
 }
+
+
 
 /* ============================= */
 /*       FORMULARIO MARCA       */
@@ -461,6 +483,90 @@ body {
   color: var(--muted);
   font-weight: 500;
 }
+
+/* ============================= */
+/*            FOOTER             */
+/* ============================= */
+
+.site-footer {
+  background: #1F2839;
+  color: var(--white);
+  padding: 3rem 0 0;
+  margin-top: 3rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* -------- LOGO ESTILO NAVBAR -------- */
+
+.footer-logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.footer-logo {
+  height: 42px;
+  width: auto;
+}
+
+/* -------- DATOS CON ÍCONOS -------- */
+
+.footer-info {
+  text-align: right;
+}
+
+.footer-info p {
+  margin: 0.3rem 0;
+  color: var(--white);
+  font-size: 15px;
+}
+
+.footer-icon {
+  color: var(--accent);
+  margin-right: 6px;
+  font-size: 17px;
+}
+
+/* -------- COPYRIGHT -------- */
+
+.copyright {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--white);
+  background: #1F2839;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* -------- RESPONSIVE -------- */
+
+@media (max-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+
+  .footer-logo-circle {
+    margin: 0 auto;
+  }
+}
+
 
 /* ============================= */
 /*          RESPONSIVE           */

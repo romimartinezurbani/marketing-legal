@@ -1,26 +1,32 @@
 import React from "react";
 import logo from "../assets/logo.png";
 
-
 export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container nav-inner">
+
+        {/* Logo + Nombre */}
         <div className="brand">
-          <img src={logo} alt="logo" className="logo" />
+
+          <div className="logo-wrapper">
+            <img src={logo} alt="logo" className="logo" />
+          </div>
 
           <div className="brand-text">
-            <span className="brand-title">MARKETING</span>
+            <span className="brand-title">MARKETING </span>
             <span className="brand-sub">LEGAL</span>
           </div>
+
         </div>
 
+        {/* Links */}
         <nav className="nav-links">
           <a href="#reunion">Reunión</a>
           <a href="#consulta-marca">Consulta de marca</a>
           <a href="#servicios">Servicios</a>
           <a href="#quienes">Quiénes somos</a>
-          <a href="#faq">FAQ</a>
+          <a href="#faq">Preguntas Frecuentes</a>
 
           <a
             className="btn-outline"
@@ -31,9 +37,11 @@ export default function Navbar() {
             Agenda tu reunión
           </a>
         </nav>
+
       </div>
     </header>
   );
 }
+
 
 
