@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function AdminLogin() {
 
     try {
       await signInWithEmailAndPassword(auth, email, pass);
-      navigate("/admin");
+      navigate("/admin/consultas");
     } catch (err) {
       console.error("❌ ERROR LOGIN:", err.code, err.message);
       setError("Credenciales incorrectas o error de autenticación");
@@ -23,33 +24,42 @@ export default function AdminLogin() {
   };
 
   return (
-    <div style={{ maxWidth: 350, margin: "4rem auto", textAlign: "center" }}>
-      <h2>Ingreso Administrativo</h2>
+    <div className="login-wrapper">
+      <div className="login-card">
+        {/* BRANDING */}
+        <div className="login-brand">
+          <img src={logo} alt="Marketing Legal" className="login-logo" />
+          <h3 className="login-title">Marketing Legal</h3>
+        </div>
 
-      <form onSubmit={login} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <h2 className="login-subtitle">Ingreso Administrativo</h2>
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          required
-        />
+        <form onSubmit={login} className="login-form">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
+            required
+          />
 
-        <button className="btn-accent" type="submit">
-          Ingresar
-        </button>
-      </form>
+          {error && <p className="login-error">{error}</p>}
+
+          <button className="btn-login" type="submit">
+            Ingresar
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
+
 

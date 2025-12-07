@@ -10,9 +10,7 @@ import MarcaFormSection from "./components/MarcaFormSection";
 import FAQ from "./components/FAQ";
 import ContactButton from "./components/ContactButton";
 import logo from "./assets/logo.png";
-
 import AdminLogin from "./admin/AdminLogin";
-import AdminDashboard from "./admin/AdminDashboard";
 import ConsultasTable from "./admin/ConsultasTable";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
@@ -88,18 +86,6 @@ export default function App() {
         {/*    LOGIN ADMIN        */}
         {/* ===================== */}
         <Route path="/admin/login" element={<AdminLogin />} />
-
-        {/* ===================== */}
-        {/*   PANEL ADMIN BASE    */}
-        {/* ===================== */}
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
 
         {/* ===================== */}
         {/*   CONSULTAS ADMIN     */}
