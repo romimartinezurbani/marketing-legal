@@ -1,70 +1,84 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🧩 Descripción del Proyecto
 
-## Available Scripts
+Este proyecto es un panel administrativo desarrollado para Marketing Legal, con el objetivo de gestionar consultas, exportar datos, ver estado de clientes y centralizar información comercial.
 
-In the project directory, you can run:
+La aplicación está construida con:
 
-### `npm start`
+React 18
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Firebase Firestore
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React Router DOM
 
-### `npm test`
+jsPDF + AutoTable
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+XLSX
 
-### `npm run build`
+Create React App
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+El panel permite consultar, filtrar, editar y exportar consultas enviadas por clientes a través del formulario online.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🚀 Características Principales
+✔ Gestión de Consultas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Listado completo de consultas enviadas.
 
-### `npm run eject`
+Filtro en tiempo real por marca.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Historial de estados (pendiente, en trámite, terminado).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✔ Exportación
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Exportar a Excel (.xlsx)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Exportar a PDF con tabla organizada en landscape.
 
-## Learn More
+✔ Edición rápida
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Modal para editar estado y mensaje.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Botones minimalistas de editar y eliminar.
 
-### Code Splitting
+Confirmación antes de eliminar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+✔ Diseño Profesional
 
-### Analyzing the Bundle Size
+Tabla con filas separadas y sombreadas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Encabezado fijo.
 
-### Making a Progressive Web App
+Branding de Marketing Legal (nombre + logo).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Estilos modernos con tu paleta corporativa.
 
-### Advanced Configuration
+📁 Estructura del Proyecto
+marketing-legal/
+│
+├── public/
+├── src/
+│   ├── assets/
+│   │   └── logo.png
+│   ├── components/
+│   │   └── ConsultasTable.jsx
+│   ├── styles/
+│   │   └── admin.css
+│   ├── firebase.js
+│   ├── App.js
+│   └── index.js
+│
+├── package.json
+└── README.md
+🔧 Dependencias Principales
+"react": "^18.3.1",
+"firebase": "^12.6.0",
+"react-router-dom": "^6.27.0",
+"xlsx": "^0.18.5",
+"jspdf": "^3.0.4",
+"jspdf-autotable": "^5.0.2"
+👩‍💼 Desarrollado por
+Admify - Soluciones Integrales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Desarrollo Web & Asesoramiento Administrativo
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Si necesitás mejoras, nuevos módulos o automatizaciones, este sistema está preparado para seguir creciendo 🚀

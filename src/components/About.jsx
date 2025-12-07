@@ -71,7 +71,7 @@ export default function About() {
       </div>
 
       {/* MISIÓN & VISIÓN */}
-      {/* MISIÓN & VISIÓN */}
+    
 <div className="about-intro mv-intro">
   <h2 className="about-title mv-title">Sobre Marketing Legal</h2>
   <div className="about-divider mv-divider"></div>

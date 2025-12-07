@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import logo from "../assets/logo.png";
 
 export default function ConsultasTable() {
   const [consultas, setConsultas] = useState([]);
@@ -84,7 +85,16 @@ export default function ConsultasTable() {
   return (
     <div className="admin-wrapper">
 
-      <h2 className="admin-title">Consultas Recibidas</h2>
+  <div className="admin-header">
+    <h2 className="admin-title">Consultas Recibidas</h2>
+
+    <div className="admin-brand">
+      <img src={logo} alt="Marketing Legal" className="admin-brand-logo" />
+
+      <span className="admin-brand-name">Marketing Legal</span>
+    </div>
+  </div>
+
 
       {/* FILTRO */}
       <input

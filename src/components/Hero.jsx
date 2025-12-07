@@ -12,6 +12,7 @@ export default function Hero() {
           <div className="hero-title-wrapper">
             <h1 className="hero-title">Marketing Legal</h1>
             <img src={flechaImg} alt="Flecha" className="hero-arrow" />
+            <div className="about-divider mv-divider"></div>
           </div>
 
           <p className="hero-sub">
