@@ -1,31 +1,37 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import nosotrosImg from "../assets/Nosotros.png";
+import flechaImg from "../assets/flecha.png";
 
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="container hero-grid">
-        <div className="hero-content">
-          <h1 className="hero-title">Marketing Legal</h1>
+    <section className="hero-section">
+      <div className="hero-container">
+
+        {/* IZQUIERDA */}
+        <div className="hero-left">
+          <div className="hero-title-wrapper">
+            <h1 className="hero-title">Marketing Legal</h1>
+            <img src={flechaImg} alt="Flecha" className="hero-arrow" />
+          </div>
+
           <p className="hero-sub">
-            Combinamos publicidad digital, registro de marcas e identidad visual para que tu empresa crezca con
-            claridad, coherencia y seguridad jurídica.
+            Combinamos publicidad digital, registro de marcas e identidad visual para
+            que tu empresa crezca con claridad, coherencia y seguridad jurídica.
           </p>
+
+          
         </div>
 
-        <div className="hero-card">
-          <div className="card-inner">
-
-            
-            <div className="hero-logo-wrapper">
-              <img src={logo} alt="Marketing Legal" className="hero-logo" />
-            </div>
-
-            <p className="small">Impulsar y proteger marcas con propósito.</p>
+        {/* DERECHA */}
+        <div className="hero-right">
+          <div className="hero-image-wrapper">
+            <img src={nosotrosImg} alt="Equipo" className="hero-image" />
           </div>
         </div>
+
       </div>
     </section>
   );
 }
+
 

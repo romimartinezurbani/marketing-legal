@@ -1,75 +1,103 @@
 import React from "react";
+import idvisual from "../assets/identidadvisual.png";
+import registro from "../assets/registro.png";
+import publicidad from "../assets/publicidad.png";
+
+
 
 export default function Services() {
+  const services = [
+    {
+      icono: idvisual,
+      title: "Identidad Visual & Branding",
+      intro: "Creamos identidades visuales funcionales, estéticas y alineadas al propósito de cada marca.",
+      list: [
+        "Diseño de logotipo y variantes",
+        "Paleta de colores institucional",
+        "Sistema tipográfico",
+        "Iconografía personalizada",
+        "Moodboard conceptual",
+        "Manual de marca completo",
+      ],
+      
+    },
+
+    {
+      icono: registro,
+      title: "Registro de Marca & Propiedad Intelectual",
+      intro: "Protección legal completa del signo distintivo de tu proyecto, acompañando todas las etapas ante el INPI.",
+      list: [
+        "Búsqueda previa de antecedentes",
+        "Análisis de registrabilidad",
+        "Estrategia de presentación",
+        "Selección de clases (Niza)",
+        "Seguimiento del trámite",
+        "Contestación de observaciones",
+        "Asesoramiento frente a oposiciones",
+      ],
+      extraTitle: "Servicios complementarios",
+      extraList: [
+        "Renovación de marca",
+        "Transferencias",
+        "Contratos comerciales / franquicia",
+        "Oposiciones",
+        "Informes técnicos",
+      ],
+    },
+
+    {
+      icono: publicidad,
+      title: "Publicidad Digital",
+      intro: "Impulsamos visibilidad y conversiones mediante campañas en Meta Ads con un enfoque profesional y analítico.",
+      list: [
+        "Campañas en Meta Ads",
+        "Segmentación estratégica",
+        "Configuración de Pixel y métricas",
+        "Optimización continua",
+        "Reportes mensuales",
+        "Lanzamientos y campañas especiales",
+      ],
+    
+    },
+  ];
+
   return (
-    <div className="services-grid">
+    <section className="services-section">
+      <div className="services-grid">
+        {services.map((s, i) => (
+          <div className="service-card-new" key={i}>
 
-      <div className="service-card">
-        <h3>Publicidad Digital</h3>
-        <p className="service-intro">
-          Impulsamos visibilidad y conversiones mediante campañas en Meta Ads con un enfoque profesional y analítico.
-        </p>
+            <div className="service-icon-wrapper">
+              <img src={s.icono} alt="" className="service-icon" />
+            </div>
 
-        <ul className="service-list">
-          <li>Campañas en Meta Ads</li>
-          <li>Segmentación estratégica</li>
-          <li>Configuración de Pixel y métricas</li>
-          <li>Optimización continua</li>
-          <li>Reportes mensuales</li>
-          <li>Lanzamientos y campañas especiales</li>
-        </ul>
+            <h3 className="service-title">{s.title}</h3>
+            <div className="service-divider"></div>
 
-        <p className="service-goal">
-          Estrategias basadas en datos para marcas personales, comercios y negocios en expansión.
-        </p>
+            <p className="service-intro">{s.intro}</p>
+
+            <ul className="service-list">
+              {s.list.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+
+            {s.extraTitle && (
+              <>
+                <h4 className="service-extra-title">{s.extraTitle}</h4>
+                <ul className="service-list">
+                  {s.extraList.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {s.goal && <p className="service-goal">{s.goal}</p>}
+          </div>
+        ))}
       </div>
-
-      <div className="service-card">
-        <h3>Registro de Marca & Propiedad Intelectual</h3>
-        <p className="service-intro">
-          Protección legal completa del signo distintivo de tu proyecto, acompañando todas las etapas ante el INPI.
-        </p>
-
-        <ul className="service-list">
-          <li>Búsqueda previa de antecedentes</li>
-          <li>Análisis de registrabilidad</li>
-          <li>Estrategia de presentación</li>
-          <li>Selección de clases (Niza)</li>
-          <li>Seguimiento del trámite</li>
-          <li>Contestación de observaciones</li>
-          <li>Asesoramiento frente a oposiciones</li>
-        </ul>
-
-        <h4>Servicios complementarios</h4>
-        <ul className="service-list">
-          <li>Renovación de marca</li>
-          <li>Transferencias</li>
-          <li>Contratos comerciales / franquicia</li>
-          <li>Oposiciones</li>
-          <li>Informes técnicos</li>
-        </ul>
-      </div>
-
-      <div className="service-card">
-        <h3>Identidad Visual & Branding</h3>
-        <p className="service-intro">
-          Creamos identidades visuales funcionales, estéticas y alineadas al propósito de cada marca.
-        </p>
-
-        <ul className="service-list">
-          <li>Diseño de logotipo y variantes</li>
-          <li>Paleta de colores institucional</li>
-          <li>Sistema tipográfico</li>
-          <li>Iconografía personalizada</li>
-          <li>Moodboard conceptual</li>
-          <li>Manual de marca completo</li>
-        </ul>
-
-        <p className="service-goal">
-          Identidades claras, memorables y preparadas para todos los canales.
-        </p>
-      </div>
-
-    </div>
+    </section>
   );
 }
+

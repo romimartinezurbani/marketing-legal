@@ -26,7 +26,7 @@
 
 body {
   margin: 0;
-  background: var(--white);
+  background: var(--light);
   font-family: "Raleway", sans-serif;
   color: var(--dark);
   line-height: 1.55;
@@ -41,86 +41,89 @@ body {
 /*             HERO              */
 /* ============================= */
 
-.hero {
-  padding: 4rem 0 5rem;
+.hero-section {
+  padding: 6rem 2rem;
+  background: #E6E6E6;
 }
 
-.hero-grid {
+.hero-container {
+  max-width: 1100px;
+  margin: auto;
   display: grid;
-  grid-template-columns: 1fr 330px;
-  gap: 3rem;
+  grid-template-columns: 1fr 0.9fr;
   align-items: center;
+  gap: 3rem;
+}
+
+/* TÍTULO + FLECHA */
+.hero-title-wrapper {
+  position: relative;
+  display: inline-block;
 }
 
 .hero-title {
-  font-family: "Libre Baskerville", serif;
-  font-size: 46px;
-  margin: 0 0 1rem;
-  color: var(--dark);
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3.3rem;
+  line-height: 1.1;
+  color: #1F2839;
+  position: relative;
+  z-index: 2;
 }
 
+.hero-arrow {
+  position: absolute;
+  width: 110px;
+  right: -70px;
+  top: 10px;
+  opacity: 0.32;
+  transform: rotate(-5deg);
+}
+
+/* TEXTOS */
 .hero-sub {
-  font-size: 18px;
-  color: var(--muted);
-  max-width: 55ch;
-  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  max-width: 480px;
+  opacity: 0.8;
 }
 
-/* CTA */
-.hero-ctas {
-  display: flex;
-  gap: 1rem;
+.hero-btn {
+  margin-top: 2rem;
+  padding: 0.9rem 1.8rem;
+  background: #1F2839;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* ========== NUEVO LOGO DEL HERO ========== */
-.hero-logo-wrapper {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
+.hero-btn:hover {
+  background: #B98D61;
 }
 
-.hero-logo {
-  height: 55px;
-  width: auto;
-}
-
-/* Tarjeta del costado */
-.hero-card {
+/* IMAGEN DERECHA — NUEVO DISEÑO */
+.hero-right {
   display: flex;
   justify-content: center;
 }
 
-.card-inner {
-  background: linear-gradient(180deg, #fafafa, #ffffff);
-  padding: 2rem;
+.hero-image-wrapper {
+  width: 70%;
+  max-width: 340px;
+  padding: 0.7rem;
+  border-radius: 16px;
+  border: 2px solid #B98D61; /* borde fino dorado */
+  
+}
+
+.hero-image {
+  width: 100%;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-  text-align: center;
+  filter: drop-shadow(0px 8px 35px rgba(185, 141, 97, 0.35));
 }
 
-.small {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-}
 
-/* Responsive */
-@media (max-width: 850px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-logo-wrapper {
-    margin: 0 auto 1rem;
-  }
-}
 
 /* ============================= */
 /*            NAVBAR             */
@@ -147,15 +150,15 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--light);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;  /* espacio interno elegante */
+  padding: 6px;  
 }
 
 .logo {
-  height: 30px;      /* más chico para que no toque el borde */
+  height: 30px;     
   width: auto;
 }
 
@@ -234,9 +237,9 @@ body {
 /* ============================= */
 
 .reunion-wrapper {
-  max-width: 1100px;      /* Igual que .container */
-  width: 100%;            /* Ocupa el ancho completo */
-  margin: 0 auto;         /* Centrado como todas las secciones */
+  max-width: 1100px;      
+  width: 100%;            
+  margin: 0 auto;         
 }
 
 .reunion-wrapper h3 {
@@ -307,81 +310,210 @@ body {
 /*         ABOUT (QUIÉNES)       */
 /* ============================= */
 
+/* ----- SECCIÓN ABOUT ----- */
 .about-section {
+  padding: 6rem 2rem;
+  background: #F8F8F8;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
+}
+
+/* ----- FOTO + INTRO ----- */
+.about-top {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.about-photo-wrapper {
+  max-width: 420px;
 }
 
 .about-main-photo {
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 12px;
-  border: 2px solid var(--tan); /* BORDE FINO ELEGANTE */
-  object-fit: cover;
+  border-radius: 16px;
+  filter: drop-shadow(0px 10px 40px rgba(31, 40, 57, 0.25));
 }
 
 .about-intro {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 550px;
 }
 
+.about-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem;
+  color: #1F2839;
+  text-align: left;
+}
+
+.about-divider {
+  width: 70px;
+  height: 3px;
+  background: #B98D61;
+  margin: 0.6rem 0 1.5rem;
+  border-radius: 10px;
+}
+
+/* ----- GRID EQUIPO ----- */
 .team-grid {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
 }
 
-.team-card {
-  background: #fff;
-  padding: 1.8rem;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.07);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+/* ----- CARD PREMIUM ----- */
+.team-card-new,
+.mv-card-new {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1.5px solid rgba(185, 141, 97, 0.35);
+  transition: 0.3s ease;
 }
 
-.team-card h3 {
-  font-family: "Libre Baskerville", serif;
-  margin-top: 0;
-  margin-bottom: .6rem;
+.team-card-new:hover,
+.mv-card-new:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 30px rgba(31, 40, 57, 0.18);
+  border-color: rgba(185, 141, 97, 0.7);
 }
 
-.team-card p {
-  margin-top: 0;
-  color: var(--muted);
-}
-.about-photo-wrapper {
-  text-align: center;                   /* ⭐ Centrado real */
+/* Ícono */
+.team-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
 }
 
-.about-main-photo {
-  display: inline-block;                /* ⭐ Centrado perfecto */
+.team-icon {
+  width: 40px;
+  opacity: 0.9;
+}
+
+/* Títulos de tarjetas */
+.team-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.35rem;
+  color: #1F2839;
+  text-align: center;
+}
+
+.team-divider {
+  width: 50px;
+  height: 3px;
+  background: #B98D61;
+  margin: 0.6rem auto 1.3rem;
+  border-radius: 10px;
+}
+
+.team-card-new p,
+.mv-card-new p {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  color: #1F2839;
+  opacity: 0.85;
 }
 
 /* ============================= */
-/*         MISION & VISION       */
+/*     SOBRE MARKETING LEGAL     */
 /* ============================= */
 
+/* Contenedor general (título + divider + grid) */
+.mv-intro {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+/* Título centrado */
+.mv-title {
+  text-align: center;
+  width: 100%;
+}
+
+/* Línea dorada centrada */
+.mv-divider {
+  margin: 0.6rem auto 1.5rem auto;
+}
+
+/* GRID centrada */
 .mv-grid {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 850px;     /* limita el ancho */
+  margin-left: auto;
+  margin-right: auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+
+  justify-items: center; /* centra las tarjetas dentro de la grid */
 }
 
-.mv-card {
-  background: linear-gradient(180deg, #f8f4ef, #ffffff);
-  border: 1px solid rgba(185,141,97,0.25);
-  border-radius: 12px;
-  padding: 1.5rem;
+/* Tarjetas */
+.mv-card-new {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
 }
 
-.mv-card h3 {
-  margin-top: 0;
-  font-family: "Libre Baskerville", serif;
+/* Íconos centrados */
+.team-icon-wrapper {
+  display: flex;
+  justify-content: center;
 }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .mv-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .mv-card-new {
+    margin: 0 auto;
+  }
+
+  .mv-title {
+    text-align: center !important;
+  }
+
+  .mv-divider {
+    margin: 0.6rem auto 1.5rem auto !important;
+  }
+}
+
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 900px) {
+  .team-grid,
+  .mv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-title {
+    text-align: center;
+  }
+
+  .about-divider {
+    margin: 0.6rem auto 1.5rem;
+  }
+}
+
 
 /* ============================= */
 /*             FAQ              */
@@ -429,60 +561,146 @@ body {
 /* ============================= */
 /*          SERVICES           */
 /* ============================= */
+/* --- SECCIÓN GENERAL --- */
+.services-section {
+  padding: 5rem 2rem;
+  background: #F8F8F8;
+}
+
 .services-grid {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
 }
 
-.service-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 14px;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+/* --- CARD --- */
+.service-card-new {
+  background: #FFFFFF;
+  padding: 2.2rem;
+  border-radius: 18px;
+  border: 1.5px solid rgba(185, 141, 97, 0.35);  /* dorado suave */
+  transition: 0.35s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.service-card h3 {
-  font-family: "Libre Baskerville", serif;
-  font-size: 22px;
-  margin-top: 0;
+.service-card-new:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(31, 40, 57, 0.15);
+  border-color: rgba(185, 141, 97, 0.7);
 }
 
-.service-intro {
-  color: var(--muted);
+/* --- ÍCONO --- */
+.service-icon-wrapper {
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
+.service-icon {
+  width: 42px;
+  opacity: 0.9;
+}
+
+/* --- TITULO + DIVISOR --- */
+.service-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.35rem;
+  color: #1F2839;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  min-height: 55px; /* Alinea todos los títulos */
+}
+
+.service-divider {
+  width: 60px;
+  height: 3px;
+  background: #B98D61;
+  margin: 0.5rem auto 1.4rem;
+  border-radius: 10px;
+}
+
+/* --- INTRO --- */
+.service-intro {
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 1.3rem;
+  min-height: 60px; /* Alineación entre cards */
+}
+
+/* --- LISTAS --- */
 .service-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 1.2rem 0;
+  margin: 1rem 0;
+  padding-left: 1.2rem;
 }
 
 .service-list li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: .5rem;
-  color: var(--dark);
+  margin-bottom: 0.5rem;
+  color: #1F2839;
+  font-size: 0.95rem;
 }
 
-.service-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 3px;
+.service-list li::marker {
+  color: #B98D61;
 }
 
+/* --- EXTRA TITLE --- */
+.service-extra-title {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1F2839;
+  border-left: 3px solid #B98D61;
+  padding-left: 0.5rem;
+}
+
+/* --- GOAL --- */
 .service-goal {
-  margin-top: 1rem;
-  color: var(--muted);
-  font-weight: 500;
+  margin-top: auto;
+  font-size: 0.9rem;
+  opacity: 0.75;
+  font-style: italic;
 }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1050px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+  }
+
+  .service-card-new {
+    padding: 1.8rem;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .service-card-new {
+    padding: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.15rem;
+  }
+
+  .service-icon {
+    width: 34px;
+  }
+}
+
 
 /* ============================= */
 /*            FOOTER             */
@@ -508,7 +726,7 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--light);
   border: 2px solid var(--accent);
   display: flex;
   align-items: center;
@@ -534,7 +752,7 @@ body {
 }
 
 .footer-icon {
-  color: var(--accent);
+  color: var(--light);
   margin-right: 6px;
   font-size: 17px;
 }
@@ -576,5 +794,180 @@ body {
   .nav-links { display: none; }
   .about-main-photo { max-width: 100%; }
 }
+
+/* ============================= */
+/*          ADMIN AREA           */
+/* ============================= */
+
+/* ------------------------------ */
+/*     CONTENEDOR GENERAL         */
+/* ------------------------------ */
+
+.admin-wrapper {
+  padding: 3rem;
+  background: #F8F8F8;
+}
+
+/* ------------------------------ */
+/*           TÍTULO               */
+/* ------------------------------ */
+
+.admin-title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 2rem;
+  color: #1F2839;
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------------------ */
+/*       INPUT DE BÚSQUEDA        */
+/* ------------------------------ */
+
+.admin-search {
+  width: 260px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(31, 40, 57, 0.35);
+  background: #fff;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.admin-search:focus {
+  outline: none;
+  border-color: #B98D61;
+  box-shadow: 0px 0px 5px rgba(185, 141, 97, 0.45);
+}
+
+.admin-search::placeholder {
+  color: rgba(31,40,57,0.45);
+}
+
+/* ------------------------------ */
+/*        BOTONES EXPORT          */
+/* ------------------------------ */
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1F2839;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+  box-shadow: 0px 3px 10px rgba(31, 40, 57, 0.15);
+}
+
+.btn-export:hover {
+  background: #B98D61;
+}
+
+/* ---------- CONTENEDOR TABLA (envoltorio con scroll) ---------- */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- TABLA: forzamos ancho mínimo y layout automático ---------- */
+.admin-table {
+  width: 100%;
+  min-width: 1300px;    /* ajustá si necesitás más/menos */
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  table-layout: auto;   /* importante: que las columnas crezcan según contenido */
+  box-sizing: border-box;
+}
+
+/* ---------- THEAD sticky y barra continua ---------- */
+.admin-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #1F2839;
+}
+
+.admin-table thead tr {
+  background: #1F2839;
+}
+
+.admin-table thead th {
+  color: white;
+  padding: 14px 12px;
+  font-size: 0.9rem;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- ASIGNAR ANCHOS POR COLUMNA (usar width en vez de sólo min-width) ---------- */
+/* Ajustá los valores si quieres más o menos espacio */
+.admin-table thead th:nth-child(1)  { width: 140px; } /* Nombre */
+.admin-table thead th:nth-child(2)  { width: 260px; } /* Email */
+.admin-table thead th:nth-child(3)  { width: 140px; } /* WhatsApp */
+.admin-table thead th:nth-child(4)  { width: 170px; } /* Ciudad */
+.admin-table thead th:nth-child(5)  { width: 150px; } /* Marca */
+.admin-table thead th:nth-child(6)  { width: 150px; } /* Rubro */
+.admin-table thead th:nth-child(7)  { width: 90px;  } /* Logo */
+.admin-table thead th:nth-child(8)  { width: 80px; } /* Identidad visual */
+.admin-table thead th:nth-child(9)  { width: 80px; } /* Meta Ads */
+.admin-table thead th:nth-child(10) { width: 200px; } /* Mensaje */
+.admin-table thead th:nth-child(11) { width: 120px; } /* Fecha */
+.admin-table thead th:nth-child(12) { width: 130px; } /* Estado */
+.admin-table thead th:nth-child(13) { width: 110px; } /* Acciones */
+
+/* Si la tabla sigue estrechándose en pantallas pequeñas, aumentá min-width de .admin-table */
+
+/* ---------- FILAS (estilo cards) ---------- */
+.admin-table tbody tr {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 3px 12px rgba(31, 40, 57, 0.12);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: table-row; /* conservar comportamiento de tabla */
+}
+
+.admin-table tbody tr:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 30px rgba(31, 40, 57, 0.14);
+}
+
+/* ---------- CELDAS ---------- */
+.admin-table td {
+  padding: 14px 12px;
+  color: #1F2839;
+  font-size: 0.92rem;
+  vertical-align: middle;
+  word-break: break-word; /* evita desbordes largos */
+}
+
+/* ---------- ACCIONES ---------- */
+.table-actions { display:flex; gap:10px; align-items:center; justify-content:flex-end; }
+.btn-edit, .btn-delete { padding:8px; border-radius:8px; border:1px solid transparent; background:#fff; cursor:pointer; }
+.btn-edit { border-color:#B98D61; color:#B98D61; }
+.btn-delete { border-color:#d9534f; color:#d9534f; }
+.btn-edit:hover { background:#B98D61; color:#fff; }
+.btn-delete:hover { background:#d9534f; color:#fff; }
+
+/* ---------- RESPONSIVE (reduce min-width y adapta) ---------- */
+@media (max-width: 1200px) {
+  .admin-table { min-width: 1200px; }
+  .admin-table thead th:nth-child(2) { width: 220px; } /* email menos ancho en tablet */
+  .admin-table thead th:nth-child(10) { width: 160px; } /* mensaje más contenido */
+}
+
+@media (max-width: 900px) {
+  /* En móviles forzamos stack vertical reduciendo min-width para scroll móvil */
+  .admin-table { min-width: 1000px; }
+  .admin-table thead th:nth-child(2) { width: 200px; }
+  .admin-table thead th:nth-child(10) { width: 140px; }
+}
+
+
+
 
 

@@ -9,6 +9,14 @@ export default function FAQ() {
 
   const data = [
     {
+      cat: "Identidad Visual",
+      items: [
+        { q: "¿Qué incluye el servicio?", a: "Logo, paleta, tipografías, iconografía y manual." },
+        { q: "¿Cuánto tarda?", a: "Entre 2 y 4 semanas." },
+        { q: "¿Qué entregables recibo?", a: "Kit completo + manual en PDF." }
+      ]
+    },
+    {
       cat: "Registro de Marca",
       items: [
         { q: "¿Por qué registrar una marca?", a: "Para obtener exclusividad legal sobre tu nombre." },
@@ -30,14 +38,7 @@ export default function FAQ() {
         { q: "¿Puedo pausar campañas?", a: "Sí, en cualquier momento." }
       ]
     },
-    {
-      cat: "Identidad Visual",
-      items: [
-        { q: "¿Qué incluye el servicio?", a: "Logo, paleta, tipografías, iconografía y manual." },
-        { q: "¿Cuánto tarda?", a: "Entre 2 y 4 semanas." },
-        { q: "¿Qué entregables recibo?", a: "Kit completo + manual en PDF." }
-      ]
-    }
+    
   ];
 
   return (

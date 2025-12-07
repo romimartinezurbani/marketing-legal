@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -9,63 +11,112 @@ import FAQ from "./components/FAQ";
 import ContactButton from "./components/ContactButton";
 import logo from "./assets/logo.png";
 
+import AdminLogin from "./admin/AdminLogin";
+import AdminDashboard from "./admin/AdminDashboard";
+import ConsultasTable from "./admin/ConsultasTable";
+import ProtectedRoute from "./routes/ProtectedRoute";
+
 export default function App() {
   return (
-    <>
-      <Navbar />
+    <BrowserRouter>
+      <Routes>
 
-      <main>
-        <Hero />
+        {/* ===================== */}
+        {/*     LANDING PAGE      */}
+        {/* ===================== */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
 
-        <MeetingSection />
+              <main>
+                <Hero />
+                <MeetingSection />
 
-        <section id="servicios" className="section">
-          <div className="container">
-            <h2 className="section-title">Servicios</h2>
-            <Services />
-          </div>
-        </section>
+                <section id="servicios" className="section">
+                  <div className="container">
+                    <h2 className="section-title">Servicios</h2>
+                    <Services />
+                  </div>
+                </section>
 
-        <MarcaFormSection />
+                <MarcaFormSection />
 
-        <section id="quienes" className="section light">
-          <div className="container">
-            <h2 className="section-title">Quiénes somos</h2>
-            <About />
-          </div>
-        </section>
+                <section id="quienes" className="section light">
+                  <div className="container">
+                    <h2 className="section-title">Quiénes somos</h2>
+                    <About />
+                  </div>
+                </section>
 
-        <FAQ />
-      </main>
+                <FAQ />
+              </main>
 
-      <footer className="site-footer">
-          <div className="container footer-grid">
-            
-            {/* LOGO FORMATEADO */}
-            <div className="footer-logo-wrapper">
-              <div className="footer-logo-circle">
-                <img src={logo} alt="logo" className="footer-logo" />
-              </div>
-            </div>
+              {/* ===================== */}
+              {/*        FOOTER         */}
+              {/* ===================== */}
+              <footer className="site-footer">
+                <div className="container footer-grid">
 
-            {/* DATOS DEL ESTUDIO */}
-            <div className="footer-info">
-              <p><span className="footer-icon">📍</span> Hipólito Irigoyen 470 - Río Cuarto, Cba</p>
-              <p><span className="footer-icon">📞</span> (0358) 156001318</p>
-              <p><span className="footer-icon">✉️</span> marketinglegal.ok@gmail.com</p>
-            </div>
+                  <div className="footer-logo-wrapper">
+                    <div className="footer-logo-circle">
+                      <img src={logo} alt="logo" className="footer-logo" />
+                    </div>
+                  </div>
 
-          </div>
+                  <div className="footer-info">
+                    <p><span className="footer-icon">📍</span> Hipólito Irigoyen 470 - Río Cuarto, Cba</p>
+                    <p><span className="footer-icon">📞</span> (0358) 156001318</p>
+                    <p><span className="footer-icon">✉️</span> marketinglegal.ok@gmail.com</p>
+                    
+                  </div>
 
-          <div className="copyright">
-            © {new Date().getFullYear()} Marketing Legal. Todos los derechos reservados.
-          </div>
-        </footer>
+                </div>
 
+                <div className="copyright">
+                  © {new Date().getFullYear()} Marketing Legal. Todos los derechos reservados.
+                </div>
+              </footer>
 
-      <ContactButton />
-    </>
+              <ContactButton />
+            </>
+          }
+        />
+
+        {/* ===================== */}
+        {/*    LOGIN ADMIN        */}
+        {/* ===================== */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* ===================== */}
+        {/*   PANEL ADMIN BASE    */}
+        {/* ===================== */}
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ===================== */}
+        {/*   CONSULTAS ADMIN     */}
+        {/* ===================== */}
+        <Route
+          path="/admin/consultas"
+          element={
+            <ProtectedRoute>
+              <ConsultasTable />
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
+
 
 
