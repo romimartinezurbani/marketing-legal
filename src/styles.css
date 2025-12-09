@@ -105,25 +105,94 @@ body {
   background: #B98D61;
 }
 
-/* IMAGEN DERECHA — NUEVO DISEÑO */
-.hero-right {
-  display: flex;
-  justify-content: center;
+/* ===== HERO IMÁGENES PREMIUM ===== */
+
+.hero-images-stack {
+  position: relative;
+  width: fit-content;
+  margin-left: auto;
 }
 
-.hero-image-wrapper {
-  width: 70%;
-  max-width: 340px;
-  padding: 0.7rem;
-  border-radius: 16px;
-  border: 2px solid #B98D61; /* borde fino dorado */
-  
+.hero-img {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 4px solid #B98D61; /* bordes dorados */
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  background: white;
 }
 
-.hero-image {
+/* Imagen principal */
+.main-img {
+  width: 340px;
+  height: 420px;
+}
+
+.main-img img {
   width: 100%;
-  border-radius: 12px;
-  filter: drop-shadow(0px 8px 35px rgba(185, 141, 97, 0.35));
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagen secundaria superpuesta */
+.secondary-img {
+  width: 200px;
+  height: 250px;
+
+  position: absolute;
+  bottom: -75px;
+  right: -75px;
+
+  transition: transform 0.25s ease;
+}
+
+.secondary-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.secondary-img:hover {
+  transform: scale(1.04);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .main-img {
+    width: 260px;
+    height: 330px;
+  }
+
+  .secondary-img {
+    width: 150px;
+    height: 190px;
+    bottom: -25px;
+    right: -20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-images-stack {
+    margin: 0 auto;
+  }
+
+  .main-img {
+    width: 220px;
+    height: 290px;
+  }
+
+  .secondary-img {
+    width: 120px;
+    height: 150px;
+    bottom: -18px;
+    right: -15px;
+  }
 }
 
 
@@ -314,6 +383,37 @@ body {
 /* ============================= */
 
 /* ----- SECCIÓN ABOUT ----- */
+.team-photo-wrapper {
+  width: 165px;              /* MÁS GRANDE */
+  height: 165px;
+  margin: 0 auto 1.2rem auto;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 4px solid #B98D61;  /* ✔ BORDE DORADO - mismo color que usas */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.team-photo-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 .about-section {
   padding: 6rem 2rem;
   background: #F8F8F8;

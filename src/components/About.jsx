@@ -1,19 +1,15 @@
 import React from "react";
-import fotoBrunoFlor from "../assets/Bruno-Flor.jpg";
+import Flor from "../assets/flor.JPG";
+import Bruno from "../assets/bruno.JPG";
 import mision from "../assets/mision.png";
 import vision from "../assets/vision.png";
-
 
 export default function About() {
   return (
     <section className="about-section">
 
-      {/* Foto + Intro */}
+      {/* INTRO SUPERIOR */}
       <div className="about-top">
-        <div className="about-photo-wrapper">
-          <img src={fotoBrunoFlor} alt="Bruno y Flor" className="about-main-photo" />
-        </div>
-
         <div className="about-intro">
           <h2 className="about-title">Sobre Nosotros</h2>
           <div className="about-divider"></div>
@@ -29,8 +25,12 @@ export default function About() {
       {/* TARJETAS DEL EQUIPO */}
       <div className="team-grid">
         
+        {/* BRUNO */}
         <div className="team-card-new">
           
+          <div className="team-photo-wrapper">
+            <img src={Bruno} alt="Bruno Belmartino" className="team-photo" />
+          </div>
 
           <h3 className="team-title">Bruno Belmartino</h3>
           <div className="team-divider"></div>
@@ -49,8 +49,13 @@ export default function About() {
           </p>
         </div>
 
+        {/* FLORENCIA */}
         <div className="team-card-new">
           
+          <div className="team-photo-wrapper">
+            <img src={Flor} alt="Florencia Casim" className="team-photo" />
+          </div>
+
           <h3 className="team-title">Florencia Casim</h3>
           <div className="team-divider"></div>
 
@@ -71,47 +76,46 @@ export default function About() {
       </div>
 
       {/* MISIÓN & VISIÓN */}
-    
-<div className="about-intro mv-intro">
-  <h2 className="about-title mv-title">Sobre Marketing Legal</h2>
-  <div className="about-divider mv-divider"></div>
+      <div className="about-intro mv-intro">
+        <h2 className="about-title mv-title">Sobre Marketing Legal</h2>
+        <div className="about-divider mv-divider"></div>
 
-  <div className="mv-grid">
+        <div className="mv-grid">
 
-    <div className="mv-card-new">
-      <div className="team-icon-wrapper">
-        <img src={mision} className="team-icon" alt="" />
+          <div className="mv-card-new">
+            <div className="team-icon-wrapper">
+              <img src={mision} className="team-icon" alt="" />
+            </div>
+
+            <h3 className="team-title">Misión</h3>
+            <div className="team-divider"></div>
+
+            <p>
+              Acompañar a marcas y negocios fortaleciendo su base legal e impulsando su presencia digital,
+              integrando identidad visual, estrategia y protección jurídica.
+            </p>
+          </div>
+
+          <div className="mv-card-new">
+            <div className="team-icon-wrapper">
+              <img src={vision} className="team-icon" alt="" />
+            </div>
+
+            <h3 className="team-title">Visión</h3>
+            <div className="team-divider"></div>
+
+            <p>
+              Consolidarnos como una agencia pionera en la integración de servicios legales y de marketing
+              digital, liderando un enfoque moderno, claro y humano.
+            </p>
+          </div>
+
+        </div>
       </div>
-
-      <h3 className="team-title">Misión</h3>
-      <div className="team-divider"></div>
-
-      <p>
-        Acompañar a marcas y negocios fortaleciendo su base legal e impulsando su presencia digital,
-        integrando identidad visual, estrategia y protección jurídica.
-      </p>
-    </div>
-
-    <div className="mv-card-new">
-      <div className="team-icon-wrapper">
-        <img src={vision} className="team-icon" alt="" />
-      </div>
-
-      <h3 className="team-title">Visión</h3>
-      <div className="team-divider"></div>
-
-      <p>
-        Consolidarnos como una agencia pionera en la integración de servicios legales y de marketing
-        digital, liderando un enfoque moderno, claro y humano.
-      </p>
-    </div>
-
-  </div>
-</div>
-
 
     </section>
   );
 }
+
 
 

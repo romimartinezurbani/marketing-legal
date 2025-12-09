@@ -1,5 +1,6 @@
 import React from "react";
-import nosotrosImg from "../assets/Nosotros.png";
+import nosotrosImg from "../assets/florbruno.JPG";
+import nosotros2 from "../assets/brunoflor.JPG"; 
 import flechaImg from "../assets/flecha.png";
 
 export default function Hero() {
@@ -19,14 +20,22 @@ export default function Hero() {
             Combinamos publicidad digital, registro de marcas e identidad visual para
             que tu empresa crezca con claridad, coherencia y seguridad jurídica.
           </p>
-
-          
         </div>
 
         {/* DERECHA */}
         <div className="hero-right">
-          <div className="hero-image-wrapper">
-            <img src={nosotrosImg} alt="Equipo" className="hero-image" />
+          <div className="hero-images-stack">
+            
+            {/* Imagen principal */}
+            <div className="hero-img main-img">
+              <img src={nosotrosImg} alt="Equipo principal" />
+            </div>
+
+            {/* Imagen secundaria superpuesta */}
+            <div className="hero-img secondary-img">
+              <img src={nosotros2} alt="Equipo secundario" />
+            </div>
+
           </div>
         </div>
 
@@ -34,5 +43,6 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
