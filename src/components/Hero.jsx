@@ -1,6 +1,6 @@
 import React from "react";
-/*import nosotrosImg from "../assets/florbruno.JPG";
-import nosotros2 from "../assets/brunoflor.JPG"; */
+import nosotrosImg from "../assets/florbruno.JPG";
+import nosotros2 from "../assets/brunoflor.JPG";
 import flechaImg from "../assets/flecha.png";
 
 export default function Hero() {
@@ -22,7 +22,22 @@ export default function Hero() {
           </p>
         </div>
 
-      
+      {/* DERECHA */}
+        <div className="hero-right">
+          <div className="hero-images-stack">
+            
+            {/* Imagen principal */}
+            <div className="hero-img main-img">
+              <img src={nosotrosImg} alt="Equipo principal" />
+            </div>
+
+            {/* Imagen secundaria superpuesta */}
+            <div className="hero-img secondary-img">
+              <img src={nosotros2} alt="Equipo secundario" />
+            </div>
+
+          </div>
+        </div>
       
       </div>
     </section>
