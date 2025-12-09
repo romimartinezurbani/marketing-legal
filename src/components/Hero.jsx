@@ -1,6 +1,6 @@
 import React from "react";
-import nosotrosImg from "../assets/florbruno.JPG";
-import nosotros2 from "../assets/brunoflor.JPG"; 
+/*import nosotrosImg from "../assets/florbruno.JPG";
+import nosotros2 from "../assets/brunoflor.JPG"; */
 import flechaImg from "../assets/flecha.png";
 
 export default function Hero() {
