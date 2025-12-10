@@ -20,7 +20,7 @@ export default function Navbar() {
 
             <div className="brand-text">
               <span className="brand-title">MARKETING</span>
-              <span className="brand-sub">LEGAL</span>
+              <span className="brand-title">LEGAL</span>
             </div>
           </div>
 
