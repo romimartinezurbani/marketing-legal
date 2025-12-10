@@ -98,7 +98,7 @@ body {
 .brand-text .brand-title{
   color: var(--white);
   font-family: "Libre Baskerville", serif;
-  font-weight:700;
+  font-weight:500;
   font-size: 1rem;
   display:block;
   line-height:1;
