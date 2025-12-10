@@ -60,7 +60,7 @@ body {
   top: 0;
   background: var(--dark);
   color: var(--white);
-  z-index: 220;
+  z-index: 999;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   backdrop-filter: blur(6px);
 }
@@ -84,7 +84,7 @@ body {
   width:48px;
   height:48px;
   border-radius:50%;
-  background: var(--light);   /* <-- evita que se vea azul en mobile */
+  background: transparent; /* <-- evita el azul */
   display:flex;
   align-items:center;
   justify-content:center;
@@ -95,19 +95,6 @@ body {
   height:30px;
   width:auto;
   display:block;
-}
-
-.brand-title{
-  font-family: "Libre Baskerville", serif;
-  font-weight:500;
-  font-size: 1rem;
-  color: var(--white);
-}
-
-.brand-sub{
-  font-weight:600;
-  font-size:.95rem;
-  color: var(--white);
 }
 
 /* DESKTOP NAV */
@@ -143,6 +130,7 @@ body {
   border:0;
   cursor:pointer;
   padding:6px;
+  z-index: 2000; /* IMPORTANTE PARA CLICK */
 }
 
 .nav-toggle .bar{
@@ -174,7 +162,7 @@ body {
     gap:1.4rem;
     background: var(--dark);
     box-shadow:-8px 0 30px rgba(0,0,0,0.35);
-    z-index:999;
+    z-index:1500;
     animation: slideInRight .32s ease;
   }
 
@@ -196,107 +184,72 @@ body {
 /*             HERO              */
 /* ============================= */
 
-.hero-section{
-  padding: 6rem 2rem;
-  background: #E6E6E6;
+.hero-images-stack {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto; /* <-- CENTRA EN MOBILE Y DESKTOP */
 }
 
-.hero-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns: 1fr 0.9fr;
-  align-items:center;
-  gap: 3rem;
-}
-
-/* TITLE + ARROW */
-.hero-title-wrapper{
-  position:relative;
-  display:inline-block;
-}
-
-.hero-title{
-  font-family:'Libre Baskerville', serif;
-  font-size: 3.3rem;
-  line-height:1.05;
-  margin:0;
-}
-
-.hero-arrow{
-  position:absolute;
-  width:100px;
-  right:-60px;     /* ajustado */
-  top:-28px;       /* ajustado */
-  opacity:.35;
-  transform:rotate(-6deg);
-}
-
-/* IMAGES */
-.hero-images-stack{
-  position:relative;
-  width:fit-content;
-  margin-left:auto;
-}
-
-.hero-img{
+/* Contenedor de cada imagen */
+.hero-img {
   border-radius:18px;
   overflow:hidden;
   border: 4px solid var(--accent);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.16);
+  background: transparent !important; /* <-- evita gris */
 }
 
-/* main */
-.main-img{
+/* Imagen principal */
+.main-img {
   width:340px;
   height:420px;
 }
 
-/* secondary */
-.secondary-img{
+.main-img img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Imagen secundaria */
+.secondary-img {
   width:200px;
   height:250px;
   position:absolute;
-  bottom:-50px;
-  right:-35px;
-  transition:.25s;
+  bottom:-55px;
+  right:-40px;
 }
 
-/* MOBILE FIXES */
+.secondary-img img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Ajustes mobile */
 @media(max-width:850px){
-
-  .hero-container{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .hero-images-stack{
-    margin:auto;
-  }
-
-  .hero-title{
-    font-size:2.4rem;
-  }
-
-  .hero-arrow{
-    width:80px;
-    right:-20px;   /* corregido */
-    top:-16px;
-  }
-
   .main-img{
     width:260px;
     height:330px;
-    margin:0 auto;
   }
 
   .secondary-img{
     width:150px;
     height:190px;
-    right:-10px;
-    bottom:-22px;
+    bottom:-25px;
+    right:-20px;
   }
 }
+
+  .hero-arrow{
+    width: 80px;
+    right: 0px;         /* se alinea al borde del texto */
+    top: -18px;         /* altura correcta */
+    transform: rotate(-8deg); /* inclinación elegante */
+  }
+
+
 
 /* ============================= */
  /* BOTÓN ACCENT */ 
@@ -459,7 +412,10 @@ body {
 .services-grid{
   max-width:1200px; margin:auto;
   display:grid; grid-template-columns: repeat(3,1fr); gap:2.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .service-card-new{
   background:white; padding:2.2rem; border-radius:18px;
   border:1.5px solid rgba(185,141,97,0.35);
@@ -478,18 +434,17 @@ body {
 .service-list li::marker{ color:var(--accent); }
 
 
-@media(max-width:850px){
-
-  .services-grid{
-    grid-template-columns:1fr;   /* una debajo de otra */
-    max-width:420px;
-    margin:auto;
+@media(max-width: 850px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
   }
+}
+
 
   .service-card-new{
     margin:auto;
   }
-}
 
 
 
