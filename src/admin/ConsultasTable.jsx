@@ -9,7 +9,8 @@ import logo from "../assets/logo.png";
 export default function ConsultasTable() {
   const [consultas, setConsultas] = useState([]);
   const [filtroMarca, setFiltroMarca] = useState("");
-  const [editData, setEditData] = useState(null); // Datos que se editan
+  const [editId, setEditId] = useState(null); // ID que está siendo editado
+  const [editValues, setEditValues] = useState({}); // valores temporales de edición
 
   useEffect(() => {
     const fetchConsultas = async () => {
@@ -28,6 +29,31 @@ export default function ConsultasTable() {
     return consultas.filter((c) =>
       c.marca?.toLowerCase().includes(filtroMarca.toLowerCase())
     );
+  };
+
+  const iniciarEdicion = (c) => {
+    setEditId(c.id);
+    setEditValues({
+      estado: c.estado || "pendiente",
+      mensaje: c.mensaje || "",
+    });
+  };
+
+  const cancelarEdicion = () => {
+    setEditId(null);
+    setEditValues({});
+  };
+
+  const guardarEdicion = async (id) => {
+    await updateDoc(doc(db, "consultas-marca", id), editValues);
+
+    setConsultas((prev) =>
+      prev.map((c) =>
+        c.id === id ? { ...c, ...editValues } : c
+      )
+    );
+
+    cancelarEdicion();
   };
 
   const handleDelete = async (id) => {
@@ -70,58 +96,31 @@ export default function ConsultasTable() {
     docPDF.save("consultas.pdf");
   };
 
-  const handleSaveEdit = async () => {
-    const { id, ...data } = editData;
-
-    await updateDoc(doc(db, "consultas-marca", id), data);
-
-    setConsultas((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, ...data } : c))
-    );
-
-    setEditData(null);
-  };
-
   return (
     <div className="admin-wrapper">
 
-  <div className="admin-header">
-    <h2 className="admin-title">Consultas Recibidas</h2>
+      <div className="admin-header">
+        <h2 className="admin-title">Consultas Recibidas</h2>
 
-    <div className="admin-brand">
-      <img src={logo} alt="Marketing Legal" className="admin-brand-logo" />
+        <div className="admin-brand">
+          <img src={logo} alt="Marketing Legal" className="admin-brand-logo" />
+          <span className="admin-brand-name">Marketing Legal</span>
+        </div>
+      </div>
 
-      <span className="admin-brand-name">Marketing Legal</span>
-    </div>
-  </div>
-
-
-      {/* FILTRO */}
       <input
         type="text"
         placeholder="Filtrar por marca..."
         value={filtroMarca}
         onChange={(e) => setFiltroMarca(e.target.value)}
-        style={{
-          padding: "10px",
-          marginBottom: "1.2rem",
-          width: "250px",
-          borderRadius: "6px",
-          border: "1px solid #ccc",
-        }}
+        className="admin-search"
       />
 
-      {/* BOTONES */}
       <div style={{ marginBottom: "1rem", display: "flex", gap: "1rem" }}>
-        <button onClick={exportExcel} className="btn-export">
-          📄 Exportar Excel
-        </button>
-        <button onClick={exportPDF} className="btn-export">
-          📑 Exportar PDF
-        </button>
+        <button onClick={exportExcel} className="btn-export">📄 Excel</button>
+        <button onClick={exportPDF} className="btn-export">📑 PDF</button>
       </div>
 
-      {/* TABLA */}
       <div style={{ overflowX: "auto" }}>
         <table className="admin-table">
           <thead>
@@ -151,79 +150,65 @@ export default function ConsultasTable() {
                 <td>{c.ciudad}</td>
                 <td>{c.marca}</td>
                 <td>{c.rubro}</td>
+                <td>{c.logoUrl ? "Sí" : "-"}</td>
+                <td>{c.disenio}</td>
+                <td>{c.metaAds}</td>
+
+                {/* MENSAJE - editable */}
                 <td>
-                  {c.logoUrl ? (
-                    <a href={c.logoUrl} target="_blank" rel="noreferrer">
-                      Ver logo
-                    </a>
+                  {editId === c.id ? (
+                    <textarea
+                      className="admin-textarea"
+                      value={editValues.mensaje}
+                      onChange={(e) =>
+                        setEditValues((prev) => ({ ...prev, mensaje: e.target.value }))
+                      }
+                    />
                   ) : (
-                    "-"
+                    c.mensaje || "-"
                   )}
                 </td>
-                <td>{c.disenio || "-"}</td>
-                <td>{c.metaAds || "-"}</td>
-                <td>{c.mensaje || "-"}</td>
-                <td>
-                  {c.fecha ? new Date(c.fecha.toDate()).toLocaleDateString() : "-"}
-                </td>
-                <td>{c.estado || "pendiente"}</td>
 
+                <td>{c.fecha ? new Date(c.fecha.toDate()).toLocaleDateString() : "-"}</td>
+
+                {/* ESTADO - editable */}
                 <td>
-                  <div className="table-actions">
-                    <button className="btn-edit" onClick={() => setEditData(c)}>
-                      ✏️
-                    </button>
-                    <button
-                      className="btn-delete"
-                      onClick={() => handleDelete(c.id)}
+                  {editId === c.id ? (
+                    <select
+                      className="admin-select"
+                      value={editValues.estado}
+                      onChange={(e) =>
+                        setEditValues((prev) => ({ ...prev, estado: e.target.value }))
+                      }
                     >
-                      🗑️
-                    </button>
-                  </div>
+                      <option value="pendiente">Pendiente</option>
+                      <option value="en-tramite">En trámite</option>
+                      <option value="terminado">Terminado</option>
+                    </select>
+                  ) : (
+                    c.estado || "pendiente"
+                  )}
+                </td>
+
+                {/* ACCIONES */}
+                <td>
+                  {editId === c.id ? (
+                    <div className="table-actions">
+                      <button className="btn-edit" onClick={() => guardarEdicion(c.id)}>💾</button>
+                      <button className="btn-delete" onClick={cancelarEdicion}>✖️</button>
+                    </div>
+                  ) : (
+                    <div className="table-actions">
+                      <button className="btn-edit" onClick={() => iniciarEdicion(c)}>✏️</button>
+                      <button className="btn-delete" onClick={() => handleDelete(c.id)}>🗑️</button>
+                    </div>
+                  )}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-
-      {/* MODAL DE EDICIÓN */}
-      {editData && (
-        <div className="modal-overlay">
-          <div className="modal-card">
-            <h3>Editar Consulta</h3>
-
-            <label>Estado:</label>
-            <select
-              value={editData.estado || "pendiente"}
-              onChange={(e) =>
-                setEditData((prev) => ({ ...prev, estado: e.target.value }))
-              }
-            >
-              <option value="pendiente">Pendiente</option>
-              <option value="en-tramite">En trámite</option>
-              <option value="terminado">Terminado</option>
-            </select>
-
-            <label>Mensaje:</label>
-            <textarea
-              value={editData.mensaje || ""}
-              onChange={(e) =>
-                setEditData((prev) => ({ ...prev, mensaje: e.target.value }))
-              }
-            />
-
-            <div className="modal-buttons">
-              <button className="btn-save" onClick={handleSaveEdit}>
-                Guardar
-              </button>
-              <button className="btn-cancel" onClick={() => setEditData(null)}>
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { db, storage } from "../firebase";
+import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function MarcaFormSection() {
-  const [logoFile, setLogoFile] = useState(null);
   const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -26,33 +24,14 @@ export default function MarcaFormSection() {
       metaAds: formData.get("meta-ads"),
       mensaje: formData.get("mensaje"),
       fecha: Timestamp.now(),
-      logoUrl: null, // se completa después
     };
 
     try {
-      let finalLogoUrl = null;
-
-      // 📁 Si el usuario subió un archivo
-      if (logoFile) {
-        const fileName = `${Date.now()}-${logoFile.name}`;
-        const storageRef = ref(storage, `logos/${fileName}`);
-
-        // Subir archivo
-        await uploadBytes(storageRef, logoFile);
-
-        // Obtener URL descargable
-        finalLogoUrl = await getDownloadURL(storageRef);
-
-        data.logoUrl = finalLogoUrl;
-      }
-
       // Guardar en Firestore
       await addDoc(collection(db, "consultas-marca"), data);
 
       alert("Consulta enviada correctamente.");
-
       e.target.reset();
-      setLogoFile(null);
     } catch (err) {
       console.error("❌ Error guardando consulta:", err);
       alert("Error al enviar el formulario.");
@@ -86,19 +65,12 @@ export default function MarcaFormSection() {
           <label>Rubro / actividad principal *</label>
           <textarea name="rubro" rows="3" required />
 
-          <label>¿Tenés logo definido?</label>
+          <label>¿Tenés logo definido? </label>
+          <label>Si tenés logo, envianos un mensaje de Whatsapp con el mismo.</label>
           <select name="logo-si-no">
             <option>No</option>
             <option>Sí</option>
           </select>
-
-          <label>Si tenés logo, subí el archivo:</label>
-          <input
-            name="logo-archivo"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={(e) => setLogoFile(e.target.files[0])}
-          />
 
           <label>¿Te gustaría crear o renovar tu identidad visual?</label>
           <select name="disenio">
@@ -124,6 +96,7 @@ export default function MarcaFormSection() {
     </section>
   );
 }
+
 
 
 
