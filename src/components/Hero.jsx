@@ -11,8 +11,17 @@ export default function Hero() {
         {/* IZQUIERDA */}
         <div className="hero-left">
           <div className="hero-title-wrapper">
-            <h1 className="hero-title">Marketing Legal</h1>
-            <img src={flechaImg} alt="Flecha" className="hero-arrow" />
+            <h1 className="hero-title">
+                  Marketing{" "}
+                  <span className="hero-word">
+                    Lega
+                  <span className="hero-last-letter">
+                      l
+                      <img src={flechaImg} alt="Flecha" className="hero-arrow" />
+                    </span>
+                  </span>
+              </h1> 
+
             <div className="about-divider mv-divider"></div>
           </div>
 

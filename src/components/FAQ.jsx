@@ -9,11 +9,12 @@ export default function FAQ() {
 
   const data = [
     {
-      cat: "Identidad Visual",
+      cat: "Estartegia Digital",
       items: [
-        { q: "¿Qué incluye el servicio?", a: "Logo, paleta, tipografías, iconografía y manual." },
-        { q: "¿Cuánto tarda?", a: "Entre 2 y 4 semanas." },
-        { q: "¿Qué entregables recibo?", a: "Kit completo + manual en PDF." }
+        { q: "¿Este servicio incluye el manejo de redes sociales?", a: "No. Este servicio se enfoca en la estrategia y planificación digital. Define el rumbo de la comunicación. La ejecución operativa (diseño, publicaciones, community management) se contrata como servicio aparte." },
+        { q: "¿Para quién está pensada la Estrategia Digital?", a: "Está pensada para marcas y profesionales con producto o servicio validado y presencia digital activa, que buscan posicionarse, diferenciarse y comunicar con mayor claridad y autoridad." },
+        { q: "¿Qué voy a obtener al finalizar el servicio?", a: "Un plan estratégico claro y accionable, que incluye mensaje, narrativa, pilares de contenido, estrategia de canales y un roadmap inicial para guiar todas las acciones digitales." },
+        { q: "¿La Estrategia Digital es un trabajo único o continuo?", a: "La estrategia se desarrolla como un trabajo puntual, con un horizonte inicial de 3 meses. Luego puede ampliarse o complementarse con otros servicios según objetivos y resultados." }
       ]
     },
     {

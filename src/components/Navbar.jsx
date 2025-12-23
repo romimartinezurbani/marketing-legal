@@ -19,7 +19,7 @@ export default function Navbar() {
             </div>
 
             <div className="brand-text">
-              <span className="brand-title">MARKETING</span>
+              <span className="brand-title">MARKETING </span>
               <span className="brand-title">LEGAL</span>
             </div>
           </div>
@@ -37,14 +37,7 @@ export default function Navbar() {
 
           {/* LINKS */}
           <nav className={`nav-links ${open ? "open" : ""}`}>
-            {/* Marca dentro del panel mobile */}
-            {open && (
-              <div className="panel-brand">
-                <img src={logo} className="logo" alt="logo pequeño" />
-                <span className="brand-title" style={{ color: "white" }}>Marketing Legal</span>
-              </div>
-            )}
-
+            
             <a href="#reunion" onClick={() => setOpen(false)}>Reunión</a>
             <a href="#consulta-marca" onClick={() => setOpen(false)}>Consulta de marca</a>
             <a href="#servicios" onClick={() => setOpen(false)}>Servicios</a>

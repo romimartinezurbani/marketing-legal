@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function ContactButton() {
-  const waLink = "https://wa.me/543586001318?text=Hola!%20Quiero%20coordinar%20una%20reunión%20con%20Marketing%20Legal.";
+  const waLink =
+    "https://wa.me/543586001318?text=Hola!%20Quiero%20coordinar%20una%20reunión%20con%20Marketing%20Legal.";
+
   return (
     <a
       href={waLink}
@@ -10,10 +12,19 @@ export default function ContactButton() {
       className="contact-button"
       aria-label="Contactar por WhatsApp"
     >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <path d="M...Z" fill="white" />
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path d="M12.04 2C6.55 2 2.04 6.5 2.04 12c0 1.93.54 3.74 1.47 5.29L2 22l4.86-1.27A9.94 9.94 0 0 0 12.04 22c5.5 0 9.96-4.5 9.96-10S17.54 2 12.04 2zm.02 18c-1.6 0-3.15-.43-4.5-1.25l-.32-.19-2.88.76.77-2.8-.21-.33A7.96 7.96 0 0 1 4.1 12c0-4.38 3.57-7.95 7.96-7.95 4.38 0 7.94 3.57 7.94 7.95 0 4.38-3.56 7.95-7.94 7.95zm4.38-5.94c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.22-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.43-.14-.01-.3-.01-.46-.01s-.42.06-.64.3c-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.6 4.12 3.64.58.25 1.04.4 1.39.51.58.18 1.1.15 1.52.09.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
       </svg>
-      <span>Contactanos</span>
+
+      <span></span>
     </a>
   );
 }
+
