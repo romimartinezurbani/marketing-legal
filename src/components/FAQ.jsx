@@ -9,7 +9,7 @@ export default function FAQ() {
 
   const data = [
     {
-      cat: "Estartegia Digital",
+      cat: "Estrategia Digital",
       items: [
         { q: "¿Este servicio incluye el manejo de redes sociales?", a: "No. Este servicio se enfoca en la estrategia y planificación digital. Define el rumbo de la comunicación. La ejecución operativa (diseño, publicaciones, community management) se contrata como servicio aparte." },
         { q: "¿Para quién está pensada la Estrategia Digital?", a: "Está pensada para marcas y profesionales con producto o servicio validado y presencia digital activa, que buscan posicionarse, diferenciarse y comunicar con mayor claridad y autoridad." },
